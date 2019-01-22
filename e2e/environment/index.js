@@ -1,7 +1,7 @@
-const getEnvironmentConfiguration = require('./env');
+const getEnvironmentConfiguration = (env) => require(`./env/${env}`);
 
 const configuracion = {
-    environment: 'test',
+    environment: 'production',
     /**
      * Define constants
      */

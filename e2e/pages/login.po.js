@@ -1,18 +1,17 @@
 
-const { Page } = require('./page');
-
-const env = require('./../environment');
+const { Page } = require('./page.po');
 
 class LoginPage extends Page {
-    get username() { return $('#edit-mail'); }
-    get password() { return $('#edit-pass'); }
-    get submitBtn() { return $('form input[type="submit"]'); }
-    get loginMessage() { return $('div .message-text'); }
 
-    loginWithEmail() {
-        this.open(env.url);
-        this.username.setValue(env.loginCredentials.email);
-        this.password.setValue(env.loginCredentials.password);
+    get username() { return this.$('#edit-mail'); }
+    get password() { return this.$('#edit-pass'); }
+    get submitBtn() { return this.$('form input[type="submit"]'); }
+    get loginMessage() { return this.$('div .message-text').getText(); }
+
+    loginWithEmail(email, password) {
+        this.open();
+        this.username.setValue(email);
+        this.password.setValue(password);
         this.submitBtn.click();
     }
 }
