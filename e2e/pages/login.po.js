@@ -3,16 +3,17 @@ const { Page } = require('./page.po');
 
 class LoginPage extends Page {
 
-    get username() { return this.$('#edit-mail'); }
-    get password() { return this.$('#edit-pass'); }
-    get submitBtn() { return this.$('form input[type="submit"]'); }
-    get loginMessage() { return this.$('div .message-text').getText(); }
+    get emailTextField() { return this.locator('#edit-mail'); }
+    get passwordTextField() { return this.locator('#edit-pass'); }
 
-    loginWithEmail(email, password) {
+    get loginSubmitButton() { return this.locator('form input[type="submit"]'); }
+
+    get loginMessage() { return this.locator('div .message-text').getText(); }
+
+    loginWithEmail(logingCredentials) {
         this.open();
-        this.username.setValue(email);
-        this.password.setValue(password);
-        this.submitBtn.click();
+        this.fillForm(logingCredentials)
+        this.loginSubmitButton.click();
     }
 }
 

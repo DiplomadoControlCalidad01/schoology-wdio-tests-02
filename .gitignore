@@ -6,3 +6,7 @@ errorShots/
 ### Files
 
 package-lock.json
+
+### Hidden folders and files
+
+.vscode/
