@@ -9,9 +9,9 @@
   "author": "Diplomado Control de Calidad de Software Comercial",
   "license": "ISC",
   "dependencies": {
-    "chai": "~4.2.0"
   },
   "devDependencies": {
+    "chai": "~4.2.0",
     "wdio-mocha-framework": "~0.6.4",
     "wdio-selenium-standalone-service": "0.0.12",
     "wdio-spec-reporter": "~0.1.5",

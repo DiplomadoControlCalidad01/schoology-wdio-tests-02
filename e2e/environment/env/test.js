@@ -6,8 +6,8 @@ module.exports = {
         password: 'passwrd'
     },
     loginCredentials: {
-        email: 'pepito@hotmail.com',
-        password: 'passwrd'
+        email: 'jafeth.garcia.j@gmail.com',
+        password: 'Jys2laroca'
     }
 
 };

@@ -2,7 +2,7 @@ const { expect } = require('chai');
 const LoginPage = require('../../pages/login.po')
 const env = require('./../../environment');
 
-describe('Schoology login page', () => {
+xdescribe('Schoology login page', () => {
     it('should have the right title on login page', () => {
         LoginPage.open();
         expect(LoginPage.title).to.contain('Login to Schoology');
