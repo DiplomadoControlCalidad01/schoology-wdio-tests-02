@@ -1,0 +1,12 @@
+### Folders
+
+node_modules/
+errorShots/
+
+### Files
+
+package-lock.json
+
+### Hidden folders and files
+
+.vscode/
