@@ -14,6 +14,14 @@ module.exports = {
         nameSection: 'Sectiontest1',
         tematicArea: 'physical education and health',
         nivel: 'none'
-    }
+    },
 
+    browserstack: {
+        user: "nairaromero2",
+        key: "AuEpPDg9XzygDrQzrryK",
+        os: "Windows",
+        os_version: "10",
+        browser: "Edge",
+        browser_version: "18.0"
+      }
 };
