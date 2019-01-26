@@ -4,14 +4,15 @@
   "description": "Schoology End to End (e2e) Automation",
   "main": "index.js",
   "scripts": {
-    "test": "wdio"
+    "test": "wdio",
+    "browserstack": "wdio wdio.browserstack.conf.js"
   },
   "author": "Diplomado Control de Calidad de Software Comercial",
   "license": "ISC",
-  "dependencies": {
-  },
+  "dependencies": {},
   "devDependencies": {
     "chai": "~4.2.0",
+    "wdio-browserstack-service": "~0.1.18",
     "wdio-mocha-framework": "~0.6.4",
     "wdio-selenium-standalone-service": "0.0.12",
     "wdio-spec-reporter": "~0.1.5",
