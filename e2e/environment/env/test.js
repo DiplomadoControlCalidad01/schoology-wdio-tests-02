@@ -6,14 +6,14 @@ module.exports = {
         password: 'passwrd'
     },
     loginCredentials: {
-        email: 'jafeth.garcia.j@gmail.com',
-        password: 'Jys2laroca'
+        email: 'naira88re@gmail.com',
+        password: 'Control123'
     },
     courseData: {
         courseName: 'coursetest1',
-        nameSection: 'Sectiontest1',
-        tematicArea: 'physical education and health',
-        nivel: 'none'
+        sectionName: 'Sectiontest1',
+        tematicArea: '1',
+        nivel: '1'
     },
 
     browserstack: {
