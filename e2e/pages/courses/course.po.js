@@ -12,15 +12,16 @@ class CoursePage extends Page {
 
     get courseNameTextField() { return this.locator('//input[@id ="edit-course-name"]'); }
     get sectionNameTextField() { return this.locator('//input[@id ="edit-section-name-1"]'); }
-    get tematicAreaTextField() { return this.locator('//select[@id ="edit-subject-area"]'); }
-    get nivelTextField() { return this.locator('//select[@id ="edit-grade-level-range-start"]'); }
+    get tematicAreaSelectField() { return this.locator('//select[@id ="edit-subject-area"]'); }
+    get nivelSelectField() { return this.locator('//select[@id ="edit-grade-level-range-start"]'); }
     get createCourseButton() { return this.locator('//input[@id ="edit-submit"]'); }
     //declarete variables, methods to obtain locators
     
 
 
     createCourse(courseData) {
-        this.fillForm(courseData)
+        this.fillForm(courseData);
+        this.fillForm(courseData, 'SelectField');
         this.createCourseButton.click();
     }
 
