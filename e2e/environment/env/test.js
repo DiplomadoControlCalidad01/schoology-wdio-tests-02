@@ -15,7 +15,6 @@ module.exports = {
         tematicArea: '1',
         nivel: '1'
     },
-
     browserstack: {
         user: "nairaromero2",
         key: "AuEpPDg9XzygDrQzrryK",
@@ -23,5 +22,5 @@ module.exports = {
         os_version: "10",
         browser: "Edge",
         browser_version: "18.0"
-      }
+    }
 };
