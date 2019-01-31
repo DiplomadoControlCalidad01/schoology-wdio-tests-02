@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "wdio",
-    "browserstack": "wdio wdio.browserstack.conf.js"
+    "browserstack": "wdio wdio.browserstack.conf.js",
+    "bvt": "wdio wdio.bvt.conf.js"
   },
   "author": "Diplomado Control de Calidad de Software Comercial",
   "license": "ISC",

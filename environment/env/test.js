@@ -20,7 +20,7 @@ module.exports = {
         key: "AuEpPDg9XzygDrQzrryK",
         os: "Windows",
         os_version: "10",
-        browser: "Edge",
+        browserName: "Edge",
         browser_version: "18.0"
     }
 };

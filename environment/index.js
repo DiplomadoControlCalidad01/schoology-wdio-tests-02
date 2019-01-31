@@ -1,6 +1,6 @@
 const getEnvironmentConfiguration = (env) => require(`./env/${env}`);
 
-const configuracion = {
+const generalConfiguracion = {
     environment: 'test',
     /**
      * Define constants
@@ -12,5 +12,8 @@ const configuracion = {
         waitForVisible: 30000
     }
 };
+const environmentConfiguration = getEnvironmentConfiguration(generalConfiguracion.environment)
 
-module.exports = Object.assign(configuracion, getEnvironmentConfiguration(configuracion.environment));
+module.exports = {...generalConfiguracion, ...environmentConfiguration};
+
+
