@@ -1,6 +1,6 @@
 const { expect } = require('chai');
 const CoursePage = require('../../pages/courses/course.po')
-const env = require('../../environment');
+const env = require('../../../environment');
 const loginPage = require('../../pages/login.po');
 
 describe('Schoology create course', () => {
