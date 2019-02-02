@@ -5,11 +5,15 @@
   "main": "index.js",
   "scripts": {
     "test": "wdio",
-    "browserstack": "wdio wdio.browserstack.conf.js"
+    "browserstack": "wdio wdio.browserstack.conf.js",
+    "bvt": "wdio wdio.bvt.conf.js"
   },
   "author": "Diplomado Control de Calidad de Software Comercial",
   "license": "ISC",
-  "dependencies": {},
+  "dependencies": {
+    "@types/node": "~10.12.21",
+    "@types/webdriverio": "~5.0.0"
+  },
   "devDependencies": {
     "chai": "~4.2.0",
     "wdio-browserstack-service": "~0.1.18",
