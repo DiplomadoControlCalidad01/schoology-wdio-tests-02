@@ -26,7 +26,7 @@ class Page {
   }
 
   fillForm(data) {
-    this._form.forEach((functionCall, key) => {
+    this._formMap.forEach((functionCall, key) => {
       if (data[key]) functionCall(data[key]);
     });
   }
