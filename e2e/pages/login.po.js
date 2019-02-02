@@ -27,4 +27,4 @@ class LoginPage extends Page {
   }
 }
 
-module.exports = new LoginPage();
+module.exports = { LoginPage };

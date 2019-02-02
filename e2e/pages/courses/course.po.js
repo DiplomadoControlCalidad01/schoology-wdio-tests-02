@@ -38,4 +38,4 @@ class CoursePage extends Page {
   }
 }
 
-module.exports = new CoursePage();
+module.exports = { CoursePage };

@@ -8,9 +8,10 @@ class ResourceGroupPage extends ResourcePage {
     super.open();
     this.resourceGroupButton.click();
   }
+
   createNewGroup() {
     this.newGroupLink.click();
   }
 }
 
-module.exports = new ResourceGroupPage();
+module.exports = { ResourceGroupPage };
