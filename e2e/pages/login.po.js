@@ -18,7 +18,7 @@ class LoginPage extends Page {
 
   loginWithEmail(logingCredentials) {
     this.open();
-    this.completeForm(logingCredentials)
+    this.fillForm(logingCredentials)
     this.loginSubmitButton.click();
   }
 

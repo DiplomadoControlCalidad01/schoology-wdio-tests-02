@@ -2,17 +2,17 @@ module.exports = {
   url: 'https://app.schoology.com/login',
 
   loginCredentials: {
-    email: 'naira88re@gmail.com',
-    password: 'Control123'
+    email: '',
+    password: ''
   },
   credentials: {
     invalid: {
-      email: 'pepito@gamil.com',
-      password: 'passwrd'
+      email: '',
+      password: ''
     },
     valid: {
-      email: 'jafeth.garcia.j@gmail.com',
-      password: 'Control123'
+      email: '',
+      password: ''
     }
   },
   courseData: {

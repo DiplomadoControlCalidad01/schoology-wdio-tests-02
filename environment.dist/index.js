@@ -12,8 +12,8 @@ const generalConfiguracion = {
         waitForVisible: 30000
     },
     browserstack: {
-        user: "nairaromero2",
-        key: "AuEpPDg9XzygDrQzrryK",
+        user: "",
+        key: "",
         os: "Windows",
         os_version: "10",
         browserName: "Edge",

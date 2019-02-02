@@ -1,6 +1,5 @@
 const { url } = require('./../../environment');
 const { selector, constants } = require('./../core/selector.helper');
-const fillForm = require('./../core/fill-form.helper');
 const { Header } = require('./header.po');
 
 class Page {
@@ -9,9 +8,8 @@ class Page {
 
   constructor() {
     this.locator = selector;
-    this.fillForm = fillForm(this);
     this.header = new Header();
-    this._form = new Map();
+    this._formMap = new Map();
   }
 
   open(path) {
@@ -22,15 +20,14 @@ class Page {
     return $('//div//header').waitForVisible(constants.waitForVisible);
   }
 
-  toForm(locator, callback) {
-    this._form.set(locator, callback);
+  toForm(key, functionCall) {
+    this._formMap.set(key, functionCall);
     return this;
   }
 
-  completeForm(data) {
-    this._form.forEach((callback, locator) => {
-      if (data[locator])
-        callback(data[locator]);
+  fillForm(data) {
+    this._form.forEach((functionCall, key) => {
+      if (data[key]) functionCall(data[key]);
     });
   }
 }
