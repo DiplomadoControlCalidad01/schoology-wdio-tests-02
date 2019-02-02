@@ -10,4 +10,4 @@ package-lock.json
 ### Hidden folders and files
 
 .vscode/
-.environment/
+environment/

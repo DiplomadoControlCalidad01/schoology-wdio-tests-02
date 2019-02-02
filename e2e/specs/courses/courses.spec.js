@@ -5,7 +5,7 @@ const loginPage = require('../../pages/login.po');
 
 describe('Schoology create course', () => {
     it('should have the right title on course page', () => {
-        loginPage.loginWithEmail(env.loginCredentials)
+        loginPage.loginWithEmail(env.credentials.valid)
         CoursePage.openCreateACourse(); // execute the steps on CoursePage
         expect(CoursePage.createTitle.getText()).to.contain('Crear un Curso');
     });

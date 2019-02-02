@@ -1,10 +1,5 @@
 module.exports = {
   url: 'https://app.schoology.com/login',
-
-  loginCredentials: {
-    email: '',
-    password: ''
-  },
   credentials: {
     invalid: {
       email: '',
