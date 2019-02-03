@@ -1,18 +1,28 @@
 const { expect } = require('chai');
-const { LoginPage } = require('../../pages/login.po')
-const { ResourceGroupPage } = require('../../pages/resources/resource-group.po');
-const env = require('../../../environment');
+const { LoginPage, ResourceGroupPage } = require('./../../pages');
 
-describe('Schoology Group Resources', () => {
+describe('Schoology Groups on Resources', () => {
   const login = new LoginPage();
   const resourceGroup = new ResourceGroupPage();
 
+  before(() => {
+    login.loginWithEmail(login.env.credentials.valid);
+  });
+
   beforeEach(() => {
-    login.loginWithEmail(env.credentials.valid);
+    resourceGroup.open();
+  });
+
+  it('Should list of groups exist on Resources groups page', () => {
+    expect(resourceGroup.getGroupTableList().isExisting()).to.be.true;
   });
 
   it('Should create a group from Resources page', () => {
-    resourceGroup.open();
-    resourceGroup.createNewGroup();
+    const data = resourceGroup.dataToRandom(resourceGroup.env.resourceGroupData);
+    resourceGroup.createNewGroup(data);
+    
+    expect(resourceGroup.getGroupTableList().isExisting()).to.be.true;
+    expect(resourceGroup.getGroupTableNames()).to.contain.members([data.name]);
+    expect(resourceGroup.getGroupByName(data.name)).to.be.equal(data.name);
   });
 });

@@ -1,5 +1,5 @@
 
-const { Page } = require('../page.po');
+const { Page } = require('./../page.po');
 
 class ResourcePage extends Page {
 
@@ -7,7 +7,7 @@ class ResourcePage extends Page {
   get resourcePublicButton() { return this.locator('//div[@id="resources-left-menu-wrapper"]//a[@href="/resources/find"]'); }
 
   open() {
-    this.header.waitForHeader();
+    this.waitForHeader();
     this.header.resourcesLink.click();
   }
 }
