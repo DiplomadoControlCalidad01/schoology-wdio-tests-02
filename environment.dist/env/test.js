@@ -11,9 +11,21 @@ module.exports = {
     }
   },
   courseData: {
-    courseName: 'coursetest1',
-    sectionName: 'Sectiontest1',
-    tematicArea: '1',
-    nivel: '1'
+    courseName: '',
+    sectionName: '',
+    tematicArea: '',
+    nivel: ''
+  },
+  sectionEditData:{
+    courseName: '',
+    sectionName: '',
+    tematicArea: '',
+    nivel: ''
+  },
+  deleteCourseData:{
+    courseName: '',
+    sectionName: '',
+    tematicArea: '',
+    nivel: ''
   }
 };
