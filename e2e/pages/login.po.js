@@ -9,6 +9,9 @@ class LoginPage extends Page {
   get loginSubmitButton() { return this.locator('form input[type="submit"]'); }
   get loginMessage() { return this.locator('div .message-text').getText(); }
 
+  get profileButton() { return this.locator('div[data-sgy-sitenav=header-my-account-menu] button');}
+  get logoutButton() { return this.locator('a[href*="/logout"]');}
+
   constructor() {
     super();
     this
@@ -23,7 +26,8 @@ class LoginPage extends Page {
   }
 
   logout() {
-    this.open();
+    this.profileButton.click();
+    this.logoutButton.click();
   }
 }
 
