@@ -9,7 +9,7 @@ class ResourceGroupModalCreateGroupPage extends Page {
   get privacySelectField() { return this.locator('select#edit-privacy-level[name=privacy_level]'); }
   get accessSelectField() { return this.locator('select#edit-invite-type[name=invite_type]'); }
 
-  get saveGroupButton() { return this.locator('input#edit-submit[type=submit][value=Crear]'); }
+  get saveGroupButton() { return this.locator('form#s-group-create-new-form input#edit-submit[type=submit][value=Crear]'); }
 
   constructor() {
     super();
@@ -24,10 +24,15 @@ class ResourceGroupModalCreateGroupPage extends Page {
     return this.createGroupForm.waitForExist(this.constants.waitForVisible);
   }
 
+  waitToVanish() {
+    $('div#popups-overlay').waitForVisible(this.constants.waitForVisible, true);
+  }
+
   saveGroup(data) {
     this.waitForDialog();
     this.fillForm(data);
     this.saveGroupButton.click();
+    this.waitToVanish();
   }
 }
 

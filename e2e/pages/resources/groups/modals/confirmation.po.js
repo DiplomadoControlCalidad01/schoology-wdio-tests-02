@@ -15,9 +15,14 @@ class ResourceGroupModalConfirmationPage extends Page {
     return this.confirmationModal.waitForExist(this.constants.waitForVisible);
   }
 
+  waitToVanish() {
+    $('div#popups-overlay').waitForVisible(this.constants.waitForVisible, true);
+  }
+
   acceptConfirmation() {
     this.waitForDialog();
     this.confirmButton.click();
+    this.waitToVanish();
   }
 
 }

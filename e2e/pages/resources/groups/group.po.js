@@ -2,8 +2,11 @@
 const { ResourcePage } = require('./../resource.po');
 const { ResourceGroupModalCreateGroupPage } = require('./modals/create-group.po');
 const { ResourceGroupModalConfirmationPage } = require('./modals/confirmation.po')
+const { ResourceGroupModalCreateResourceTaskTemplatePage } = require('./modals/create-resource-task-template.po');
+const { ResourceGroupModalTemplateTaskPage } = require('./modals/template-task.po');
 
 class ResourceGroupPage extends ResourcePage {
+
   get newGroupLink() { return this.locator('//a[@href="/groups/new"]'); }
 
   get groupListTable() { return this.locator('table#library-left-nav[role=presentation]')}
@@ -14,11 +17,14 @@ class ResourceGroupPage extends ResourcePage {
   get optionEnableLearningObjectiveLink() { return this.locator('div#toolbar-options li#collection-enable-outcomes a[href]')}
 
   get createResourceButton() { return this.locator('div#collection-toolbar div#toolbar-add'); }
+  get addTaskTemplateLink() { return this.locator('div#toolbar-add li#collection-add-assignment a[href]')}
 
   constructor() {
     super();
     this.modalCreateGroup = new ResourceGroupModalCreateGroupPage();
     this.modalConfirmation = new ResourceGroupModalConfirmationPage();
+    this.modalCreateResourceTaskTemplate = new ResourceGroupModalCreateResourceTaskTemplatePage();
+    this.modalTemplateTask = new ResourceGroupModalTemplateTaskPage();
   }
 
   open() {
@@ -35,31 +41,26 @@ class ResourceGroupPage extends ResourcePage {
     row.click();
     this.waitForResourceDetails();    
   }
-
-  waitForResourceDetails() {
-    return this.groupResourceBody.waitForExist(this.constants.waitForVisible);
-  }
-
+  
   waitForGroupTable() {
     return this.groupListTable.waitForExist(this.constants.waitForVisible);
-  }
-
-  waitForResourceTable() {
-    return this.groupResourceTable.waitForExist(this.constants.waitForVisible);
   }
 
   createNewGroup(data) {
     this.newGroupLink.click();
     this.modalCreateGroup.saveGroup(data);
+    this.waitForResourceDetails();
     this.waitForGroupTable();
   }
 
   getGroupTableList() {
+    this.waitForGroupTable();
     return this.groupListTable.elements('tbody tr[id]');
   }
 
   getGroupTableNames() {
-    const names = this.groupListTable.elements('tbody tr[id] td a[role]').getText();
+    this.waitForGroupTable()
+    let names = this.groupListTable.elements('tbody tr[id] td a[role]').getText();
     if (!Array.isArray(names)) names = [names];
     return names;
   }
@@ -76,12 +77,26 @@ class ResourceGroupPage extends ResourcePage {
     this.waitForResourceTable();
   }
 
+  waitForResourceDetails() {
+    return this.groupResourceBody.waitForExist(this.constants.waitForVisible);
+  }
+
+  waitForResourceTable() {
+    return this.groupResourceTable.waitForExist(this.constants.waitForVisible);
+  }
+
   getResourceTableList() {
+    this.waitForResourceTable();
     return this.groupResourceTable.elements('tbody tr[id]');
   }
 
-  getResourceTableNames() {
-    const names = this.groupResourceTable.elements('tbody tr[id] td a[href]').getText();
+  _getResourceTableLinks() {
+    return this.groupResourceTable.elements('tbody tr[id] td.collection-item-title a')
+  }
+
+  getResourceTableLinkNames() {
+    this.waitForResourceTable();
+    let names = this._getResourceTableLinks().getText();
     if (!Array.isArray(names)) names = [names];
     return names
   }
@@ -92,11 +107,19 @@ class ResourceGroupPage extends ResourcePage {
 
   openResource(name) {
     this.waitForResourceTable()
-    const table = this.getResourceTableList().value || [];
+    const table = this._getResourceTableLinks().value || [];
     const row = table.find(row => `${row.getText()}` === `${name}`);
     if (!row) throw new Error(`Suggested resource not found on list: ${name}`);
     row.click();
     this.waitForResourceDetails();    
+  }
+
+  createResourceTaskTemplate(data) {
+    this.createResourceButton.click();
+    this.addTaskTemplateLink.click();
+    this.modalCreateResourceTaskTemplate.saveResource(data);
+    this.waitForResourceDetails();
+    this.waitForResourceTable();
   }
 }
 

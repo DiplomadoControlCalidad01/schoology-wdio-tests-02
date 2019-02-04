@@ -13,10 +13,6 @@ describe('Schoology Groups on Resources', () => {
     resourceGroup.open();
   });
 
-  it('Should list of groups exist on Resources groups page', () => {
-    expect(resourceGroup.getGroupTableList().isExisting()).to.be.true;
-  });
-
   it('Should create a group from Resources page', () => {
     const data = resourceGroup.dataToRandom(resourceGroup.env.resourceGroupData);
     resourceGroup.createNewGroup(data);

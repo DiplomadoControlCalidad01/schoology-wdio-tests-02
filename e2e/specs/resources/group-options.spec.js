@@ -13,7 +13,6 @@ describe('Schoology Resources Options on Groups', () => {
   beforeEach(() => {
     resourceGroup.open();
     resourceGroup.createNewGroup(data);
-    resourceGroup.open();
   });
 
   it('Should enable Learning Objectives on a Group', () => {
