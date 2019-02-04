@@ -2,10 +2,10 @@ const { selector, constants } = require('./../core/selector.helper');
 
 class Header {
 
-  get resourcesLink() { return selector('//div//a[text()="Recursos"][@href="/resources"]') }
+  get resourcesLink() { return selector('div#header a[href="/resources"]') }
 
   waitForHeader() {
-    return $('//div//header').waitForVisible(constants.waitForVisible);
+    return $('div#header header').waitForVisible(constants.waitForVisible);
   }
 }
 

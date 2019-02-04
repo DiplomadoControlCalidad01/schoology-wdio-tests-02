@@ -4,7 +4,7 @@ const env = require('../../../environment');
 const { LoginPage } = require('../../pages/login.po')
 
 
-describe('Schoology create course', () => {
+describe.skip('Schoology create course', () => {
     const loginPage = new LoginPage();
     const coursePage = new CoursePage();
 

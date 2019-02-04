@@ -1,6 +1,7 @@
 const { url } = require('./../../environment');
-const { selector, constants } = require('./../core/selector.helper');
+const { selector, constants, env } = require('./../core/selector.helper');
 const { Header } = require('./header.po');
+const { dataToRandom } = require('./../core/data-to-random.helper');
 
 class Page {
 
@@ -10,6 +11,8 @@ class Page {
     this.locator = selector;
     this.header = new Header();
     this._formMap = new Map();
+    this.env = env;
+    this.constants = constants;
   }
 
   open(path) {
@@ -17,7 +20,7 @@ class Page {
   }
 
   waitForHeader() {
-    return $('//div//header').waitForVisible(constants.waitForVisible);
+    return this.header.waitForHeader();
   }
 
   toForm(key, functionCall) {
@@ -29,6 +32,10 @@ class Page {
     this._formMap.forEach((functionCall, key) => {
       if (data[key]) functionCall(data[key]);
     });
+  }
+
+  dataToRandom(data) {
+    return dataToRandom(data);
   }
 }
 
