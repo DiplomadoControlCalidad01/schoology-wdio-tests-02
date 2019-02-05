@@ -11,22 +11,22 @@ module.exports = {
     }
   },
   courseData: {
-    courseName: '',
-    sectionName: '',
-    tematicArea: '',
-    nivel: ''
+    courseName: 'Course test n',
+    sectionName: 'section one',
+    tematicArea: '1',
+    nivel: '1'
   },
   sectionEditData:{
-    courseName: '',
-    sectionName: '',
-    tematicArea: '',
-    nivel: ''
+    courseName: 'Course test c-edit',
+    sectionName: 'Section n',
+    tematicArea: '2',
+    nivel: '2'
   },
   deleteCourseData:{
-    courseName: '',
-    sectionName: '',
-    tematicArea: '',
-    nivel: ''
+    courseName: 'Course test delete',
+    sectionName: 'section 1',
+    tematicArea: '3',
+    nivel: '2'
   },
   resourceGroupData: {
     name: 'Automation',
